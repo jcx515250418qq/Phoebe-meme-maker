@@ -593,6 +593,10 @@ $apiBaseUrl = getenv('MEME_API_BASE') ?: '/api-proxy';
             box-shadow: 0 12px 34px rgba(50, 32, 22, 0.14);
         }
 
+        .selector-canvas img[hidden] {
+            display: none !important;
+        }
+
         .selection-box {
             position: absolute;
             border: 2px solid rgba(217, 93, 57, 0.96);
