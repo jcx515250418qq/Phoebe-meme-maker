@@ -1,0 +1,19 @@
+{
+  "template_id": "sample",
+  "name": "示例模板",
+  "image_path": "templates/sample.png",
+  "font_path": "fonts/DingTalkJinBuTi-Regular.ttf",
+  "text_box": {
+    "x": 240,
+    "y": 800,
+    "width": 500,
+    "height": 140
+  },
+  "default_font_size": 120,
+  "min_font_size": 18,
+  "line_spacing": 10,
+  "font_color": "#FFFFFF",
+  "stroke_color": "#000000",
+  "stroke_width": 3,
+  "align": "center"
+}
