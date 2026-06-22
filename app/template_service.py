@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import HTTPException
+from PIL import Image
 
 from app.config import BASE_DIR, CONFIGS_DIR
 
@@ -23,16 +24,26 @@ def list_template_configs() -> list[dict[str, Any]]:
         image_path = _resolve_path(data["image_path"])
         font_path = _resolve_path(data["font_path"])
         text_box = data["text_box"]
+        image_width = None
+        image_height = None
+
+        if image_path.exists():
+            with Image.open(image_path) as image:
+                image_width, image_height = image.size
 
         templates.append(
             {
                 "template_id": data["template_id"],
                 "name": data.get("name", data["template_id"]),
+                "description": data.get("description", ""),
+                "submitted_by": data.get("submitted_by", ""),
                 "image_path": str(image_path),
                 "font_path": str(font_path),
                 "preview_url": f"/template-images/{image_path.name}",
                 "image_exists": image_path.exists(),
                 "font_exists": font_path.exists(),
+                "image_width": image_width,
+                "image_height": image_height,
                 "text_box": text_box,
                 "default_font_size": data.get("default_font_size", 36),
             }

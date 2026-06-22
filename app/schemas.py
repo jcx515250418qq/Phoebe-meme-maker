@@ -12,3 +12,13 @@ class GenerateResponse(BaseModel):
     image_url: str
     filename: str
 
+
+class AdminLoginRequest(BaseModel):
+    username: str = Field(..., min_length=1, max_length=64)
+    password: str = Field(..., min_length=1, max_length=64)
+
+
+class AdminLoginResponse(BaseModel):
+    token: str
+    username: str
+

@@ -27,6 +27,14 @@ def list_fonts() -> list[dict[str, str]]:
     return fonts
 
 
+def get_default_font_path() -> Path:
+    fonts = list_fonts()
+    if not fonts:
+        raise HTTPException(status_code=400, detail="当前没有可用字体，请先在 fonts 目录中添加字体文件。")
+
+    return (FONTS_DIR / fonts[0]["font_file"]).resolve()
+
+
 def resolve_font_path(raw_font_path: str | None) -> Path | None:
     if not raw_font_path:
         return None
@@ -43,4 +51,3 @@ def resolve_font_path(raw_font_path: str | None) -> Path | None:
         raise HTTPException(status_code=400, detail="字体文件不存在。")
 
     return candidate
-

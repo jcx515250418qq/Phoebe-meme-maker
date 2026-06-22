@@ -1,6 +1,7 @@
 {
   "template_id": "sample",
   "name": "示例模板",
+  "description": "适合加上一句可爱吐槽，做成日常聊天表情包。",
   "image_path": "templates/sample.png",
   "font_path": "fonts/DingTalkJinBuTi-Regular.ttf",
   "text_box": {
