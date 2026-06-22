@@ -1,5 +1,5 @@
 <?php
-$apiBaseUrl = getenv('MEME_API_BASE') ?: 'http://127.0.0.1:8000';
+$apiBaseUrl = getenv('MEME_API_BASE') ?: '/api-proxy';
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
